@@ -3,7 +3,8 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.all
+    @operations = current_user.operations.where(category_id: params[:category_id])
+    @category_id = params[:category_id]
   end
 
   # GET /operations/1 or /operations/1.json
@@ -20,16 +21,37 @@ class OperationsController < ApplicationController
   end
 
   # POST /operations or /operations.json
-  def create
-    @operation = Operation.new(operation_params)
+  # def create
+  #   @operation = Operation.new(operation_params)
+  #   @operation.author = current_user
 
-    respond_to do |format|
-      if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
-        format.json { render :show, status: :created, location: @operation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @operation.errors, status: :unprocessable_entity }
+  #   respond_to do |format|
+  #     if @operation.save
+  #       format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+  #       format.json { render :show, status: :created, location: @operation }
+  #     else
+  #       format.html { render :new, status: :unprocessable_entity }
+  #       format.json { render json: @operation.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  def create
+    category_ids = operation_params[:category_ids]
+    category_ids.each do |category_id|
+      @operation = Operation.new(operation_params.except(:category_ids))
+      @operation.category_id = category_id
+      
+      @operation.author = current_user
+
+      respond_to do |format|
+        if @operation.save
+          format.html { redirect_to categories_path, notice: "Operation was successfully created." }
+          format.json { render :show, status: :created, location: @operation }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @operation.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -65,6 +87,6 @@ class OperationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def operation_params
-      params.require(:operation).permit(:name, :amount, :author_id)
+      params.require(:operation).permit(:name, :amount, category_ids: [])#:category_id) 
     end
 end

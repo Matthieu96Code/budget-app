@@ -1,7 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green"><%= notice %></p> 
 
 <h1>Operations</h1>
-
+<%= link_to "Back to categories", categories_path %>
 <div id="operations">
   <% @operations.each do |operation| %>
     <%= render operation %>
@@ -11,4 +11,4 @@
   <% end %>
 </div>
 
-<%= link_to "New operation", new_category_operation_path %>
+<%= link_to "New operation", new_category_operation_path(category_id: @category_id) %>
