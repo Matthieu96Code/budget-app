@@ -1,6 +1,6 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!
   # GET /operations or /operations.json
   def index
     @operations = current_user.operations.where(category_id: params[:category_id])

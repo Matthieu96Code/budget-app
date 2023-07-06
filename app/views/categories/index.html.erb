@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Categories</h1>
-
+<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
 <div id="categories">
   <% @categories.each do |category| %>
     <%= render category %>
