@@ -1,7 +1,14 @@
-<div>
-    <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-</div>
+<div class="splash-page">
+    <div class="app-name">
+        <h1 class="app-title" >Manage mate</h1>
+    </div>
+    <div class="btn-connect footer">
+        <a href=<%= new_user_session_path%> >
+            <button class="btn-sign btn-login" type=button>LOGIN</button>
+        </a>
+        <a href=<%= new_user_registration_path%> >
+            <button class="btn-sign btn-signup" type=button>SIGN UP</button>
+        </a>
 
-<div>
-    <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+    </div>
 </div>

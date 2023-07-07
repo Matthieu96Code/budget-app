@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field-new">
+    <%= form.label :name, style: "display: none" %>
+    <%= form.text_field :name, placeholder: "Category name" %>
   </div>
 
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.text_field :icon %>
+  <div class="field-new">
+    <%= form.label :icon, style: "display: none" %>
+    <%= form.text_field :icon, placeholder: "Category icon" %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
+  <button class="btn-save btn footer">
     <%= form.submit %>
-  </div>
+  </button>
 <% end %>

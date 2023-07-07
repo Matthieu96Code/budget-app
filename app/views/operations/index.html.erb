@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p> 
 
-<h1>Operations</h1>
-<%= link_to "Back to categories", categories_path %>
+<div class="header" >
+  <h2><%= link_to "<", categories_path, class: "splash-back" %></h2>
+  <h1 class="page-title" >Operations</h1>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-log" %>
+</div>
+<div>Total operations : <%= @total_operation %> $</div>
 <div id="operations">
   <% @operations.each do |operation| %>
     <%= render operation %>
-    <p>
-      <%= link_to "Show this operation", operation %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New operation", new_category_operation_path(category_id: @category_id) %>
+<button class="btn-new btn-new-operation footer">
+  <%= link_to "NEW OPERATION", new_category_operation_path(category_id: @category_id), class: "link-new link-new-operation" %>
+</button>

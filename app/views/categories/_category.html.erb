@@ -1,17 +1,21 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<a href="<%= category_operations_path(category) %>" class="card-category" id="<%= dom_id category %>">
+  <div class="card-main">
+    <img src="<%= category.icon %>" alt="category-icon-<%= dom_id category %>" width="100px" height="100px"/>
+    <div class="card-info">
+      <p>
+        <strong>
+          <%= category.name%>
+        </strong>
+      </p>
+      <p>
+        <%= category.created_at %>
+      </p>
+    </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= category.user_id %>
-  </p>
-
-</div>
+    <div>
+      <p>
+        <%= category.operations.sum(:amount) %> $
+      </p>
+    </div>
+  </div>
+</a>

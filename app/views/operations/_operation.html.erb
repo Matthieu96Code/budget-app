@@ -1,22 +1,16 @@
-<div id="<%= dom_id operation %>">
-  <p>
-    <strong>Name:</strong>
-    <%= operation.name %>
-  </p>
+<div class="card-operation" id="<%= dom_id operation %>">
+  <div class="card-info">
+    <p>
+      <strong><%= operation.name %></strong>
+    </p>
+
+    <p>
+      <%= operation.created_at %>
+    </p>
+  </div>
 
   <p>
-    <strong>Amount:</strong>
-    <%= operation.amount %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= operation.author_id %>
-  </p>
-
-  <p>
-    <strong>category:</strong>
-    <%= operation.category_id %>
+    <%= operation.amount %> $
   </p>
 
 </div>

@@ -1,10 +1,7 @@
-<h1>New operation</h1>
+<div class="header" >
+  <h2><%= link_to "<", category_operations_path(@category), class: "splash-back" %></h2>
+  <h1 class="page-title">New operation</h1>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-log" %>
+</div>
 
 <%= render "form", operation: @operation %>
-
-<br>
-
-<div>
-  <%#= link_to "Back to operations", operations_path %>
-  <%= link_to "Back to categories", categories_path %>
-</div>

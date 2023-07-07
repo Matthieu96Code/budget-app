@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field-new" >
+    <%= form.label :name, style: "display: none" %>
+    <%= form.text_field :name, placeholder: "Operation name" %>
   </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+  <div class="field-new" >
+    <%= form.label :amount, style: "display: none" %>
+    <%= form.text_field :amount, placeholder: "Operation amount" %>
   </div>
 
-  <div>
-    <%= form.label :author_id, style: "display: block" %>
-    <%= form.text_field :author_id %>
-  </div>
-
-  <div>
+  <div class="field-new" >
     <%= form.label :category_ids, style: "display: block" %>
     <% Category.all.each do |category| %>
       <% next unless category.id.present? %>
@@ -35,7 +30,7 @@
     <% end %>
   </div>
 
-  <div>
+  <button class="btn-save btn footer">
     <%= form.submit %>
-  </div>
+  </button>
 <% end %>
