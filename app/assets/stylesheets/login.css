@@ -1,0 +1,63 @@
+.header {
+    display: flex;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+}
+
+.header .actions input,
+.nav-link-log {
+    background-color: var(--pimary-color);
+    color: var(--background-color);
+    border: none;
+}
+
+.splash-back {
+    color: var(--background-color);
+}
+
+.log-title,
+.page-title {
+    background-color: var(--primary-color);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.new_user {
+    width: 100%;
+}
+
+.new_user .login-email label, 
+.new_user .login-password label,
+.new_user .register-name label,
+.new_user .register-email label,
+.new_user .register-password label,
+.new_user .register-password-confirmation label {
+    display: none;
+}
+
+.field {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-email,
+.register-name #user_name {
+    margin-top: 2rem;
+}
+
+.field #user_name,
+.field #user_email,
+.field #user_password,
+.field #user_password_confirmation,
+.actions input {
+  width: 80%;
+  height: 3rem;
+  justify-self: center;
+  border: 1px solid var(--form-border-color)
+}
