@@ -5,6 +5,7 @@ class OperationsController < ApplicationController
   def index
     @operations = current_user.operations.where(category_id: params[:category_id])
     @category_id = params[:category_id]
+    @total_operation = @operations.sum(:amount)
   end
 
   # GET /operations/1 or /operations/1.json
@@ -13,28 +14,14 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
+    @category_id = params[:category_id]
+    @category = Category.find(@category_id)
     @operation = Operation.new
   end
 
   # GET /operations/1/edit
   def edit
   end
-
-  # POST /operations or /operations.json
-  # def create
-  #   @operation = Operation.new(operation_params)
-  #   @operation.author = current_user
-
-  #   respond_to do |format|
-  #     if @operation.save
-  #       format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
-  #       format.json { render :show, status: :created, location: @operation }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @operation.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   def create
     category_ids = operation_params[:category_ids]
@@ -43,15 +30,18 @@ class OperationsController < ApplicationController
       @operation.category_id = category_id
       
       @operation.author = current_user
+      @operation.save
+    end
 
-      respond_to do |format|
-        if @operation.save
-          format.html { redirect_to categories_path, notice: "Operation was successfully created." }
-          format.json { render :show, status: :created, location: @operation }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @operation.errors, status: :unprocessable_entity }
-        end
+    category_route = Category.find(category_ids.first) # Assuming only one category is selected
+        
+    respond_to do |format|
+      if @operation.save
+        format.html { redirect_to  category_operations_path(category_route), notice: "Operation was successfully created." }
+        format.json { render :show, status: :created, location: @operation }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @operation.errors, status: :unprocessable_entity }
       end
     end
   end
