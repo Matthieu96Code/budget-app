@@ -1,9 +1,10 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+
   # GET /operations or /operations.json
   def index
-    @operations = current_user.operations.where(category_id: params[:category_id])
+    @operations = current_user.operations.where(category_id: params[:category_id]).order(created_at: :desc)
     @category_id = params[:category_id]
     @total_operation = @operations.sum(:amount)
   end
@@ -15,7 +16,11 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @category_id = params[:category_id]
-    @category = Category.find(@category_id)
+    if params[:category_id]
+      @category_back = Category.find(params[:category_id])
+    else
+      @category_back = nil
+    end
     @operation = Operation.new
   end
 
@@ -25,19 +30,25 @@ class OperationsController < ApplicationController
 
   def create
     category_ids = operation_params[:category_ids]
-    category_ids.each do |category_id|
+
+    if category_ids.blank?
       @operation = Operation.new(operation_params.except(:category_ids))
-      @operation.category_id = category_id
-      
       @operation.author = current_user
-      @operation.save
+      @operation.category_id = nil
+    else
+      category_ids.each do |category_id|
+        @operation = Operation.new(operation_params.except(:category_ids))
+        @operation.category_id = category_id
+        
+        @operation.author = current_user
+        @operation.save
+      end
     end
 
-    category_route = Category.find(category_ids.first) # Assuming only one category is selected
-        
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to  category_operations_path(category_route), notice: "Operation was successfully created." }
+        # format.html { redirect_to  category_operations_path(Category.find(params[:operation][:category_id])), notice: "Operation was successfully created." }
+        format.html { redirect_to  category_operations_path(Category.find(category_ids.first)), notice: "Operation was successfully created." }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -73,10 +84,11 @@ class OperationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_operation
       @operation = Operation.find(params[:id])
+      @category_back = Category.find(params[:category_id])
     end
 
     # Only allow a list of trusted parameters through.
     def operation_params
-      params.require(:operation).permit(:name, :amount, category_ids: [])#:category_id) 
+      params.require(:operation).permit(:name, :amount, category_ids: []) 
     end
 end
