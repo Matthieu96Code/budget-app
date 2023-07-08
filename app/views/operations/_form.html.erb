@@ -23,7 +23,7 @@
 
   <div class="field-new category-choice" >
     <%= form.label :category_ids, style: "display: block" %>
-    <% Category.all.each do |category| %>
+    <% Category.where(user_id: current_user.id).each do |category| %>
       <% next unless category.id.present? %>
       <%= form.check_box :category_ids, { multiple: true }, category.id, nil %>
       <%= form.label "operation_category_#{category.id}", category.name %><br>

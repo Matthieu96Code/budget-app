@@ -4,7 +4,8 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = current_user.operations.where(category_id: params[:category_id]).where(author: current_user).order(created_at: :desc)
+    @operations = current_user.operations.where(category_id: params[:category_id])
+      .where(author: current_user).order(created_at: :desc)
     @category_id = params[:category_id]
     @total_operation = @operations.sum(:amount)
   end
