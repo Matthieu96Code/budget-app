@@ -3,9 +3,7 @@
     <img src="<%= category.icon %>" alt="category-icon-<%= dom_id category %>" width="100px" height="100px"/>
     <div class="card-info">
       <p>
-        <strong>
-          <%= category.name%>
-        </strong>
+        <%= category.name%>
       </p>
       <p>
         <%= category.created_at %>
@@ -13,8 +11,8 @@
     </div>
 
     <div>
-      <p>
-        <%= category.operations.sum(:amount) %> $
+      <p class="price">
+        <strong>$ <%= category.operations.sum(:amount) %></strong>
       </p>
     </div>
   </div>

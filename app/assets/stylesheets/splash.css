@@ -1,5 +1,10 @@
 /* general */
 
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('/assets/font/Proxima Nova Font.otf');
+}
+
 :root {
   --primary-color: #3778c2;
   --secondary-color: #5fb523;
@@ -7,7 +12,7 @@
   --background-color: #f5f5f5;
   --form-border-color: #e5e5e5;
   --max-wide: 1200px;
-  --general-wide: 80%;
+  --general-wide: 100%;
 }
 
 * {
@@ -79,7 +84,7 @@ body {
 }
 
 .btn-sign {
-  width: 80%;
+  width: var(--general-wide);
   padding: 1rem;
   border: 1px solid #a5a5a5;
 }

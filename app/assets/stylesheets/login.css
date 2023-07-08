@@ -28,6 +28,10 @@
   width: 100%;
 }
 
+.new_user ~ a {
+  margin-top: 0.5rem;
+}
+
 .new_user .login-email label,
 .new_user .login-password label,
 .new_user .register-name label,
@@ -54,7 +58,7 @@
 .field #user_password_confirmation,
 .actions input {
   padding-left: 0.5rem;
-  width: 80%;
+  width: var(--general-wide);
   height: 3rem;
   justify-self: center;
   border: 1px solid var(--form-border-color);

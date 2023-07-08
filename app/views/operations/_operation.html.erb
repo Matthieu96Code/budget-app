@@ -1,7 +1,7 @@
 <div class="card-operation" id="<%= dom_id operation %>">
   <div class="card-info">
     <p>
-      <strong><%= operation.name %></strong>
+      <%= operation.name %>
     </p>
 
     <p>
@@ -9,8 +9,8 @@
     </p>
   </div>
 
-  <p>
-    <%= operation.amount %> $
+  <p class="price">
+    <strong>$ <%= operation.amount %></strong>
   </p>
 
 </div>

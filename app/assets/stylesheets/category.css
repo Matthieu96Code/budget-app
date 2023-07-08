@@ -11,7 +11,7 @@
   background-color: white;
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  width: var(--general-width);
 }
 
 .card-main {
@@ -23,8 +23,6 @@
 .card-info {
   display: flex;
   flex-direction: column;
-
-  /* align-items: space-between; */
   padding: 0 1rem;
   flex-grow: 1;
 }
@@ -33,12 +31,20 @@
   margin: 0.5rem 0;
 }
 
+.total-categories {
+  align-self: flex-end;
+  margin: 1rem 1rem 0 0;
+}
+
+.price {
+  margin: 1.5rem 0.5rem;
+}
+
 .card-operation {
   justify-content: space-between;
 }
 
 .btn-new {
-  /* padding: 1.5rem 0.5rem; */
   background-color: var(--secondary-color);
   border: 1px solid var(--background-color);
 }
@@ -75,7 +81,7 @@
 }
 
 .field-new {
-  width: 80%;
+  width: var(--general-width);
   margin: 0 auto;
   color: var(--text-color);
 }
