@@ -78,11 +78,16 @@ body {
     flex-direction: column;
 }
 
-
-
 .btn-sign {
     width: 80%;
     padding: 1rem;
+    border: 1px solid #a5a5a5;
+}
+
+.btn-sign:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--background-color);
 }
 
 .footer {
