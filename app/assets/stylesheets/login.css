@@ -58,7 +58,9 @@
 
 .header .actions input,
 .nav-link-log {
+  cursor: pointer;
   background-color: var(--pimary-color);
   color: var(--background-color);
   border: none;
+  width: max-content;
 }

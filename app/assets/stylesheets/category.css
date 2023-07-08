@@ -38,10 +38,23 @@
 }
 
 .btn-new {
-  padding: 1.5rem 0.5rem;
+  /* padding: 1.5rem 0.5rem; */
   background-color: var(--secondary-color);
   border: 1px solid var(--background-color);
 }
+
+
+#btn-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  padding: 0.5rem 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 
 .btn-save {
   padding: 0.5rem 0;
