@@ -4,7 +4,7 @@ RSpec.feature 'New operation Page', type: :feature do
   include Devise::Test::IntegrationHelpers
 
   let!(:user) { User.create!(name: 'Raihan', email: 'raihan1@gmail.com', password: 'password') }
-  let!(:category) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let!(:category) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
   let!(:operation) { Operation.create!(author: user, name: 'France', amount: 10, category_id: category.id) }
 
   before do

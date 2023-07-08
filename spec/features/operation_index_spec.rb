@@ -4,7 +4,7 @@ RSpec.feature 'Transactions Page', type: :feature do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create!(name: 'user01', email: 'user01@gmail.com', password: 'password01') }
-  let(:category) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let(:category) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
   let!(:operation1) { Operation.create!(author: user, name: 'France', amount: 583.15, category_id: category.id) }
   let!(:operation2) { Operation.create!(author: user, name: 'England', amount: 612.46, category_id: category.id) }
 

@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Category, type: :model do  
+RSpec.describe Category, type: :model do
   let(:user) { User.create!(name: 'user01', email: 'user01@gmail.com', password: 'password01') }
-  let(:category) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let(:category) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
   let!(:operation1) { Operation.create!(author: user, name: 'France', amount: 583.15, category_id: category.id) }
 
   describe 'validations' do

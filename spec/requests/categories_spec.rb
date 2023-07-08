@@ -4,7 +4,7 @@ RSpec.describe 'Categories', type: :request do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create!(name: 'user01', email: 'user01@gmail.com', password: 'password01') }
-  let(:category) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let(:category) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
 
   let(:valid_params) { { name: 'Fun', icon: 'https://picsum.photos/id/30/200/300' } }
   let(:invalid_params) { { name: nil, icon: 'https://picsum.photos/id/30/200/300' } }

@@ -4,7 +4,7 @@ RSpec.feature 'Categories Page', type: :feature do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create!(name: 'user01', email: 'user01@gmail.com', password: 'password01') }
-  let!(:category1) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let!(:category1) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
 
   before do
     sign_in user

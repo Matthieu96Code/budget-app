@@ -4,7 +4,7 @@ RSpec.describe 'Operation', type: :request do
   include Devise::Test::IntegrationHelpers
 
   let(:user) { User.create!(name: 'user01', email: 'user01@gmail.com', password: 'password01') }
-  let(:category) { Category.create!(user: user, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
+  let(:category) { Category.create!(user:, name: 'Journey', icon: 'https://picsum.photos/id/30/200/300') }
   let!(:operation) { Operation.create!(author: user, name: 'France', amount: 583.15, category_id: category.id) }
 
   let(:valid_params) { { category_ids: [category.id], name: 'Dubai', amount: 634.20 } }
