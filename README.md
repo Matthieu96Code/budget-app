@@ -55,7 +55,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-[Live demo link]()
+[Live demo link](https://budget-7a3k.onrender.com/)
 
 [Presentation Video]()
 

@@ -43,7 +43,6 @@
   border: 1px solid var(--background-color);
 }
 
-
 #btn-footer {
   position: fixed;
   bottom: 0;
@@ -54,7 +53,6 @@
   padding: 0.5rem 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .btn-save {
   padding: 0.5rem 0;

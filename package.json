@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "stylelint": "npx stylelint \"**/*.{css,scss}\" --fix"
+    "stylelint": "npx stylelint \"**/*.{css,scss}\""
   },
   "devDependencies": {
     "stylelint": "^13.13.1",
