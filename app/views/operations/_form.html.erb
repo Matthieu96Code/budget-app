@@ -1,0 +1,36 @@
+<%= form_with(model: operation) do |form| %>
+  <% if operation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+        <% operation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field-new" >
+    <%= form.label :name, style: "display: none" %>
+    <%= form.text_field :name, placeholder: "Operation name" %>
+  </div>
+
+  <div class="field-new" >
+    <%= form.label :amount, style: "display: none" %>
+    <%= form.text_field :amount, placeholder: "Operation amount" %>
+  </div>
+
+  <div class="field-new category-choice" >
+    <%= form.label :category_ids, style: "display: block" %>
+    <% Category.where(user_id: current_user.id).each do |category| %>
+      <% next unless category.id.present? %>
+      <%= form.check_box :category_ids, { multiple: true }, category.id, nil %>
+      <%= form.label "operation_category_#{category.id}", category.name %><br>
+    <% end %>
+  </div>
+
+  <button class="actions btn-save btn footer">
+    <%= form.submit %>
+  </button>
+<% end %>

@@ -1,0 +1,7 @@
+<div class="header" >
+  <h2><%= link_to "<", categories_path, class: "splash-back" %></h2>
+  <h1 class="page-title" >New category</h1>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-log" %>
+</div>
+
+<%= render "form", category: @category %>

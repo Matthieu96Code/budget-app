@@ -1,0 +1,113 @@
+#categories,
+#operations {
+  width: 100%;
+}
+
+.card-category,
+.card-operation {
+  display: flex;
+  margin: 2rem auto;
+  border: 1px solid var(--background-color);
+  background-color: white;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: var(--general-width);
+}
+
+.card-main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+.card-info p {
+  margin: 0.5rem 0;
+}
+
+.total-categories {
+  align-self: flex-end;
+  margin: 1rem 1rem 0 0;
+}
+
+.price {
+  margin: 1.5rem 0.5rem;
+}
+
+.card-operation {
+  justify-content: space-between;
+}
+
+.btn-new {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--background-color);
+}
+
+#btn-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-color);
+  padding: 0.5rem 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save {
+  padding: 0.5rem 0;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--background-color);
+}
+
+.link-new {
+  background-color: var(--secondary-color);
+  color: var(--background-color);
+  border: 1px solid var(--background-color);
+  padding: 1rem 40%;
+}
+
+/* new item */
+
+.header ~ form {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.field-new {
+  width: var(--general-width);
+  margin: 0 auto;
+  color: var(--text-color);
+}
+
+.field-new #category_name,
+.field-new #category_icon,
+.field-new #operation_name,
+.field-new #operation_amount {
+  padding-left: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--form-border-color);
+}
+
+.btn-save input {
+  width: 89%;
+  height: 3rem;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--background-color);
+  color: var(--background-color);
+}
+
+.category-choice {
+  color: var(--text-color);
+  font-size: medium;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}

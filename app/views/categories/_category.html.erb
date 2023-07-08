@@ -1,0 +1,19 @@
+<a href="<%= category_operations_path(category) %>" class="card-category" id="<%= dom_id category %>">
+  <div class="card-main">
+    <img src="<%= category.icon %>" alt="category-icon-<%= dom_id category %>" width="100px" height="100px"/>
+    <div class="card-info">
+      <p>
+        <%= category.name%>
+      </p>
+      <p>
+        <%= category.created_at %>
+      </p>
+    </div>
+
+    <div>
+      <p class="price">
+        <strong>$ <%= category.operations.sum(:amount) %></strong>
+      </p>
+    </div>
+  </div>
+</a>
