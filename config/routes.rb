@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'pages/index', to: 'pages#index'
 
   resources :categories do
-    resources :operations 
+    resources :operations
   end
   resources :operations 
   resources :users

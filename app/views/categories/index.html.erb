@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+
 
 <div class="header" >
   <h2><%= link_to "M|m", root_path, class: "splash-back" %></h2>
   <h1 class="page-title" >Categories</h1>
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-log" %>
 </div>
+
+<p style="color: green"><%= notice %></p>
 
 <div id="categories">
   <% @categories.each do |category| %>

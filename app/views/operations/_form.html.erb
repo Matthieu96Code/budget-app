@@ -21,7 +21,7 @@
     <%= form.text_field :amount, placeholder: "Operation amount" %>
   </div>
 
-  <div class="field-new" >
+  <div class="field-new category-choice" >
     <%= form.label :category_ids, style: "display: block" %>
     <% Category.all.each do |category| %>
       <% next unless category.id.present? %>
@@ -30,7 +30,7 @@
     <% end %>
   </div>
 
-  <button class="btn-save btn footer">
+  <button class="actions btn-save btn footer">
     <%= form.submit %>
   </button>
 <% end %>
