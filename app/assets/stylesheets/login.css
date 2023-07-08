@@ -9,6 +9,10 @@
   padding: 0 2%;
 }
 
+.header h1 {
+  color: var(--background-color);
+}
+
 .splash-back {
   color: var(--background-color);
 }

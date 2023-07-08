@@ -42,7 +42,7 @@ body {
   flex-direction: column;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: 'Proxima Nova Light', sans-serif;
+  font-family: 'Proxima Nova', sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
   position: relative;
@@ -63,7 +63,7 @@ body {
 
 .app-title {
   color: var(--text-color);
-  font-family: 'Proxima Nova Bold', sans-serif;
+  font-family: 'Proxima Nova', sans-serif;
   font-size: 2.5rem;
 }
 

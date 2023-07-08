@@ -22,7 +22,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 recipe-app  <a name="about-project"></a>
+# 📖 budget-app  <a name="about-project"></a>
 
 **budget-app** is a mobile web application built using Ruby on Rails that helps users manage their budget effectively. With this app, users can register an account and log in, ensuring that their data remains private and secure.
 
