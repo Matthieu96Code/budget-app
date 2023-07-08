@@ -6,7 +6,11 @@
   <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link-log" %>
 </div>
 
+
 <p style="color: green"><%= notice %></p>
+<% total_sum = @categories.map { |category| category.operations.sum(:amount) }.sum %>
+
+<p class="total-categories" ><strong> Total for all categories: $ <%= total_sum %></strong></p>
 
 <div id="categories">
   <% @categories.each do |category| %>
